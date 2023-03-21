@@ -23,15 +23,34 @@ node node_modules/env-write/lib/index.js production https://sensethenlove.com
 ```
 
 
+### Example bash script file w/o variables
+```bash
+#!/bin/bash
+node node_modules/env-write/lib/index.js local http://localhost:5173
+```
+
+### Example bash script file w/ variables
+```bash
+#!/bin/bash
+node node_modules/env-write/lib/index.js $env $host
+```
+
+### Example bash script file w/ multiple commands
+```bash
+#!/bin/bash
+node node_modules/env-write/lib/index.js $env $host &&
+pnpm vite build &&
+pnpm wrangler publish
+```
+
 ### Example package.json
 ```json
 {
   "scripts": {
-    "devWrite": "node node_modules/env-write/lib/index.js local http://localhost:5173",
-    "dev": "pnpm devWrite && pnpm vite dev",
-
-    "mainWrite": "node node_modules/env-write/lib/index.js production https://sensethenlove.com",
-    "mainDeploy": "pnpm mainWrite && pnpm check && pnpm vite build && pnpm wrangler publish",
+    "write1": "bash ./src/lib/scripts/write.sh",
+    "write2": "bash ./src/lib/scripts/write.sh env=local host=http://localhost:5173",
+    "write3": "node node_modules/env-write/lib/index.js production https://sensethenlove.com",
+    "write4": "pnpm write1 && pnpm vite dev",
   }
 }
 ```
