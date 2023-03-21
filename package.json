@@ -1,7 +1,7 @@
 {
   "name": "@sensethenlove/env-write",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./lib/index.js",
   "author": "Sense Then Love",
   "types": "./lib/index.d.ts",
@@ -17,6 +17,7 @@
     "svelte",
     "sveltekit",
     "cloudflare",
+    "typescript",
     "cloudflare workers",
     "environment variables"
   ],
