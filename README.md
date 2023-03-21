@@ -2,7 +2,7 @@
 
 
 ### Description
-Script to update `.env` file w/ a `PUBLIC_ENVIRONMENT` & `PUBLIC_HOST`. Helpful w/ Sveltekit + Cloudflare workers projects!
+Script to set PUBLIC_ENVIRONMENT & PUBLIC_HOST in .env file. Helpful w/ Sveltekit + Cloudflare workers projects!
 
 
 ### Instruction
