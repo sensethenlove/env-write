@@ -1,7 +1,7 @@
 {
   "name": "@sensethenlove/env-write",
   "license": "MIT",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./lib/index.js",
   "author": "Sense Then Love",
   "types": "./lib/index.d.ts",
