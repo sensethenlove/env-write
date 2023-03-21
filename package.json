@@ -1,0 +1,33 @@
+{
+  "name": "@sensethenlove/env-write",
+  "license": "MIT",
+  "version": "1.0.1",
+  "main": "./lib/index.js",
+  "author": "Sense Then Love",
+  "types": "./lib/index.d.ts",
+  "homepage": "https://github.com/sensethenlove/env-write#readme",
+  "description": "Script to update .env file w/ a PUBLIC_ENVIRONMENT & PUBLIC_HOST. Helpful w/ Sveltekit + Cloudflare workers projects!",
+  "scripts": {
+    "build": "pnpm tsc",
+    "npmDeploy": "npm publish --access public"
+  },
+  "keywords": [
+    ".env",
+    "script"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sensethenlove/env-write.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sensethenlove/env-write/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  }
+}
