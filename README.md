@@ -1,45 +1,45 @@
-# 🙏 @sensethenlove/env-write
+# 🕉 @sensethenlove/env-write
 
 
-### 🕉 Description
+### 🙏 Description
 Script to set PUBLIC_ENVIRONMENT & PUBLIC_HOST in .env file. Helpful w/ Sveltekit + Cloudflare workers projects!
 
-### 💞 Install
+### ☯️ Install
 ```bash
 pnpm add @sensethenlove/env-write
 ```
 
-### ☯️ Instructions
+### 💛 Instructions
 Add starter to `.env` file
 ```toml
 PUBLIC_ENVIRONMENT = ''
 PUBLIC_HOST = ''
 ```
 
-### 🧡 Example bash for local
+### 🧡 Example: Bash for local
 ```bash
 node node_modules/@sensethenlove/env-write/lib/index.js local http://localhost:5173
 ```
 
-### 💛 Example bash for production
+### ❤️ Example: Bash for production
 ```bash
 node node_modules/@sensethenlove/env-write/lib/index.js production https://sensethenlove.com
 ```
 
 
-### 💙 Example bash file w/o variables
+### 💜 Example: Bash file w/o variables
 ```bash
 #!/bin/bash
 node node_modules/@sensethenlove/env-write/lib/index.js local http://localhost:5173
 ```
 
-### 💚 Example bash file w/ variables
+### 💚 Example: Bash file w/ variables
 ```bash
 #!/bin/bash
 node node_modules/@sensethenlove/env-write/lib/index.js $env $host
 ```
 
-### 💜 Example bash file w/ variables & multiple commands
+### 💙 Example: Bash file w/ variables & multiple commands
 ```bash
 #!/bin/bash
 node node_modules/@sensethenlove/env-write/lib/index.js $env $host &&
@@ -47,7 +47,7 @@ pnpm vite build &&
 pnpm wrangler publish
 ```
 
-### 💟 Example package.json
+### 💟 Example: package.json
 ```json
 {
   "scripts": {
@@ -60,6 +60,7 @@ pnpm wrangler publish
 ```
 
 ### 💖 Our helpful packages!
+* [@sensethenlove/jwt](https://www.npmjs.com/package/@sensethenlove/jwt)
 * [@sensethenlove/toast](https://www.npmjs.com/package/@sensethenlove/toast)
 * [@sensethenlove/global-style](https://www.npmjs.com/package/@sensethenlove/global-style)
 * [@sensethenlove/loop-backwards](https://www.npmjs.com/package/@sensethenlove/loop-backwards)
