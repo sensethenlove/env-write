@@ -9,7 +9,7 @@
   "description": "Script to set PUBLIC_ENVIRONMENT & PUBLIC_HOST in .env file. Helpful w/ Sveltekit + Cloudflare workers projects!",
   "scripts": {
     "build": "pnpm tsc",
-    "npmDeploy": "pnpm build && npm publish --access public"
+    "live": "pnpm build && npm publish --access public"
   },
   "keywords": [
     ".env",
