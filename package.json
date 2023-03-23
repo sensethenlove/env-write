@@ -1,6 +1,6 @@
 {
   "name": "@sensethenlove/env-write",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Sense Then Love",
   "license": "MIT",
   "main": "./lib/index.js",
