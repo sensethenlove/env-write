@@ -1,14 +1,27 @@
 import fs from 'node:fs'
-(async function main() {
-  if (process.argv.length !== 4) throw new Error('Please pass an environment & then a host')
-  else {
-    const PATH = '.env'
-    const text = await fs.promises.readFile(PATH, 'utf-8')
-    const updated = text
-      .replace(/PUBLIC_ENVIRONMENT.+/, `PUBLIC_ENVIRONMENT = '${ process.argv[2] }'`)
-      .replace(/PUBLIC_HOST.+/, `PUBLIC_HOST = '${ process.argv[3] }'`)
 
-    await fs.promises.writeFile(PATH, updated)
-    console.log('💚 Successfully updated .env file')
+(async function main() {
+  const PATH = '.env'
+  let text = await fs.promises.readFile(PATH, 'utf-8')
+  const lines = text.split(/\r?\n/)
+
+  for (const [ iArgv, request ] of process.argv.entries()) { // loop bash arguments
+    if (iArgv > 1) { // skip first few arguments
+      let lineFound = false
+      const [ key, value ] = request.split('=')
+
+      for (const [ iLine, line ] of lines.entries()) { // loop lines in .env file
+        if (line.match(key)) { // if key is found in line
+          lineFound = true
+          lines[iLine] = `${ key }='${ value }'`
+          break
+        }
+      }
+
+      if (!lineFound) lines.push(`${ key }='${ value }'`) // if line is not found => add line 
+    }
   }
+
+  await fs.promises.writeFile(PATH, lines.join('\n'))
+  console.log('💚 Successfully updated .env file')
 })()

@@ -2,59 +2,41 @@
 
 
 ### 🙏 Description
-Script to set PUBLIC_ENVIRONMENT & PUBLIC_HOST in .env file. Helpful w/ Sveltekit + Cloudflare workers projects!
+* Set keys & values in `.env` file via `bash`.
+* Helpful if using `.env` file in an environment where `process` is undefined.
+* If key is found in the `.env` file the new value will be set.
+* If key is not found in the `.env` file it will be added @ the end.
+* Only works if each key in `.env` file is on it's own line.
 
 ### ☯️ Install
 ```bash
 pnpm add @sensethenlove/env-write
 ```
 
-### 💛 Instructions
-Add starter to `.env` file
-```toml
-PUBLIC_ENVIRONMENT = ''
-PUBLIC_HOST = ''
-```
-
-### 🧡 Example: Bash for local
-```bash
-node node_modules/@sensethenlove/env-write/lib/index.js local http://localhost:5173
-```
-
-### ❤️ Example: Bash for production
-```bash
-node node_modules/@sensethenlove/env-write/lib/index.js production https://sensethenlove.com
-```
-
-
-### 💜 Example: Bash file w/o variables
-```bash
-#!/bin/bash
-node node_modules/@sensethenlove/env-write/lib/index.js local http://localhost:5173
-```
-
-### 💚 Example: Bash file w/ variables
-```bash
-#!/bin/bash
-node node_modules/@sensethenlove/env-write/lib/index.js $env $host
-```
-
-### 💙 Example: Bash file w/ variables & multiple commands
-```bash
-#!/bin/bash
-node node_modules/@sensethenlove/env-write/lib/index.js $env $host &&
-pnpm vite build &&
-pnpm wrangler publish
-```
-
-### 💟 Example: package.json
+### ❤️ Example: package.json w/o optional bash
 ```json
 {
   "scripts": {
-    "write1": "bash ./src/lib/scripts/write.sh",
-    "write2": "bash ./src/lib/scripts/write.sh env=local host=http://localhost:5173",
-    "write3": "node node_modules/@sensethenlove/env-write/lib/index.js production https://sensethenlove.com",
-    "write4": "pnpm write1 && pnpm vite dev",
+    "localEnv": "node node_modules/@sensethenlove/env-write/lib/index.js PUBLIC_ENVIRONMENT=local PUBLIC_HOST=http://localhost:5173 PUBLIC_API=https://dev-api.example.com",
+    "devEnv": "node node_modules/@sensethenlove/env-write/lib/index.js PUBLIC_ENVIRONMENT=development PUBLIC_HOST=https://dev.example.com PUBLIC_API=https://dev-api.example.com",
+    "mainEnv": "node node_modules/@sensethenlove/env-write/lib/index.js PUBLIC_ENVIRONMENT=production PUBLIC_HOST=https://app.example.com PUBLIC_API=https://api.example.com"
+  }
+}
+```
+
+### 🧡 Example: Bash script (optional) `(env.sh)`
+```bash
+#!/bin/bash
+node node_modules/@sensethenlove/env-write/lib/index.js PUBLIC_ENVIRONMENT=$env PUBLIC_HOST=$host PUBLIC_API=$api
+```
+
+### 💟 Example: package.json w/ optional bash
+```json
+{
+  "scripts": {
+    "localEnv": "env=local host=http://localhost:5173 api=https://dev-api.example.com bash ./src/lib/scripts/env.sh",
+    "devEnv": "env=development host=https://dev.example.com api=https://dev-api.example.com bash ./src/lib/scripts/env.sh",
+    "mainEnv": "env=production host=https://app.example.com api=https://api.example.com bash ./src/lib/scripts/env.sh"
   }
 }
 ```
@@ -67,3 +49,4 @@ pnpm wrangler publish
 * [@sensethenlove/svelte-modal](https://www.npmjs.com/package/@sensethenlove/svelte-modal)
 * [@sensethenlove/loop-backwards](https://www.npmjs.com/package/@sensethenlove/loop-backwards)
 * [@sensethenlove/svelte-turnstile](https://www.npmjs.com/package/@sensethenlove/svelte-turnstile)
+* [@sensethenlove/svelte-loading-anchor](https://www.npmjs.com/package/@sensethenlove/svelte-loading-anchor)

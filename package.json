@@ -1,12 +1,12 @@
 {
   "name": "@sensethenlove/env-write",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "author": "Sense Then Love",
   "license": "MIT",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "homepage": "https://github.com/sensethenlove/env-write#readme",
-  "description": "Script to set PUBLIC_ENVIRONMENT & PUBLIC_HOST in .env file. Helpful w/ Sveltekit + Cloudflare workers projects!",
+  "description": "Set keys & values in .env file via bash",
   "scripts": {
     "build": "pnpm tsc",
     "live": "pnpm build && npm publish --access public"
